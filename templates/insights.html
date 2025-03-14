@@ -1,0 +1,226 @@
+<html lang="en">
+
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <title>
+   Insights-TarangAI
+  </title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+
+ </head>
+
+ <body class="insights-page">
+
+<header class="relative p-8">
+
+   <!-- logo -->
+   <div class="absolute left-6 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+      <img alt="Tarang AI Logo" class="w-36 h-36" src="{{ url_for('static', filename='images/TarangAILogo.png') }}"/>
+   </div>
+
+   <!-- navigation -->
+   <nav class="absolute left-1/2 transform -translate-x-1/2 top-6 flex space-x-2">
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('home_page') }}">Home</a> 
+      <a class="nav-link text-lg text-black font-semibold" href="{{ url_for('insights_page') }}">Insights</a>
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('hello_world') }}">AI Prediction</a>
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('tips_page') }}">Tips</a>
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('flag_page') }}">Flag Concerns</a>
+  </nav>  
+
+   <!-- search bar -->
+<div class="absolute top-7 right-6 flex items-center mb-8">
+   <div class="relative w-71">
+       <input type="text" class="w-full py-1 px-3 rounded-full border border-gray-300 bg-[rgba(255,255,255,0.5)]" id="searchBar" placeholder="Search..." oninput="showResults()" autocomplete="off">
+       <div id="searchResults" class="dropdown"></div>
+       <i class="fas fa-search absolute top-2 right-3 text-gray-400"></i>
+   </div>
+</div>
+
+</header>
+
+<main class="px-6 md:px-20 lg:px-40 py-10">
+
+   <br><br><br>
+
+   <div class="grid grid-cols-[1fr_auto] gap-4">
+      <div>
+         <h1 class="text-2xl md:text-6xl lg:text-7xl text-gray-800 font-bold mb-6">
+            Get to know more...
+         </h1> 
+         <p class="text-lg text-gray-800 mb-8">
+            Water safety is influenced by several key parameters that determine the quality and <br>
+            suitability of water for human use, aquatic life, and environmental health. Tarang <br>
+            AI carefully and intentionally uses these parameters to train the AI model to predict <br>
+            water safety. Let's have a look at how these parameters may have an impact.
+         </p>
+
+         <br>
+
+         <p class="text-lg text-gray-800 mb-8">
+            <span class="text-2xl font-bold">State:</span> <br>
+            The state determines the geographical location of water body and that may influence <br>
+            the condition of the sample. Different states or regions may have varying levels of <br>
+            industrial pollution, agricultural runoff, or natural mineral content, which directly <br>
+            impact water safety.
+         </p>
+
+         <br>
+
+         <p class="text-lg text-gray-800 mb-8">
+            <span class="text-2xl font-bold">Temprature:</span> <br>
+            Water temperature affects the solubility of oxygen, the metabolic rates of aquatic <br>
+            organisms, and the growth of harmful bacteria. Higher temperatures can decrease <br>
+            dissolved oxygen levels, leading to hypoxic conditions that harm aquatic life and <br>
+            increase bacterial proliferation, making water unsafe.
+         </p>
+
+      </div>
+      <div class="flex justify-end">
+         <div class="flex flex-col items-end">
+            <p class="text-gray-700 text-xs mb-2" align="center"><br><br><br><br>The map shows percentage of households with safe source of water &nbsp;&nbsp;<br>based on 2015-16 National Family Health Survey.</p>
+            <img alt="India Water Safety Map" class="w-96 h-auto rounded-2xl" src="{{ url_for('static', filename='images/indiaMap.png') }}"/>
+         </div>
+      </div>   
+   </div>
+
+   <br><br>
+
+   <div class="grid grid-cols-[1fr_auto] gap-4">
+      <div class="flex justify-between w-full gap-x-8">
+         <div class="w-1/2 flex justify-end">
+            <img alt="D.O." class="w-full h-auto rounded-2xl" src="{{ url_for('static', filename='images/do.png') }}"/>
+         </div>
+         <div class="w-1/2 flex justify-start">
+            <img alt="Conductivity" class="w-full h-auto rounded-2xl" src="{{ url_for('static', filename='images/conduct.png') }}"/>
+         </div>
+      </div>   
+   </div>
+
+   <br>
+
+   <p class="text-gray-700 text-xs mb-2" align="center">The graphs above represnt the data driven insights for
+      "Dissolved Oxygen" and <br>"Conductivity" that were extracted from the Tarang AI Water Safety Prediction model.
+   </p>
+
+   <br><br><br>
+
+   <div class="grid grid-cols-[1fr_auto] gap-4">
+      <div>
+         <p class="text-lg text-gray-800 mb-8">
+            <span class="text-2xl font-bold">Dissolved Oxygen (D.O.) (mg/l):</span> <br>
+            Dissolved oxygen is crucial for aquatic life. Low D.O. levels indicate pollution or excessive organic matter decomposition, 
+            which can lead to dead zones where aquatic organisms cannot survive. Water with insufficient D.O. may also promote the growth 
+            of anaerobic bacteria that produce harmful toxins. Regular monitoring of dissolved oxygen helps detect early signs of pollution 
+            and ensures water remains habitable.
+         </p>
+
+         <br>
+
+         <p class="text-lg text-gray-800 mb-8">
+            <span class="text-2xl font-bold">Conductivity (µmhos/cm):</span> <br>
+            Conductivity measures the water's ability to carry an electrical charge, which reflects its total dissolved solids (TDS) and ion concentration. High conductivity suggests contamination from industrial waste, sewage discharge, or salt intrusion, making water unsafe for consumption and aquatic habitats.
+         </p>
+
+         <br>
+         
+         <p class="text-lg text-gray-800 mb-8">
+            <span class="text-2xl font-bold">pH (0-14):</span> <br>
+            The pH level determines the acidity or alkalinity of water. Extreme pH levels can be corrosive, affect the bioavailability 
+            of toxins, and disrupt aquatic ecosystems. The pH level of water is determined on a scale of 0 to 14, with 7 being neutral. 
+            Acidic water (low pH) can leach heavy metals, while alkaline water (high pH) can reduce nutrient solubility, both of which 
+            compromise water safety.
+         </p>
+
+      </div>
+   </div>  
+
+   <br>
+   
+   <div class="grid grid-cols-[1fr_auto] gap-8">
+      <div>
+         <p class="text-lg text-gray-800 mb-8">
+            <span class="text-2xl font-bold">Fecal Coliform (MPN/100ml):</span> <br>
+            The presence of fecal coliform bacteria indicates contamination <br>
+            by human or animal waste. High levels suggest the risk of <br>
+            waterborne diseases like cholera, dysentery, and typhoid. Water <br>
+            with elevated fecal coliform counts is considered unsafe for <br>
+            drinking, recreation, or any direct human contact. Contaminated <br>
+            water sources often stem from inadequate sewage treatment, <br>
+            agricultural runoff, and improper waste disposal. 
+         </p>
+
+         <br>
+
+         <p class="text-lg text-gray-800 mb-8">
+            <span class="text-2xl font-bold">Biochemical Oxygen Demand (B.O.D.) (mg/l):</span> <br>
+            B.O.D. measures the amount of oxygen required to break down <br>
+            organic matter in water. High B.O.D. levels indicate heavy <br>
+            pollution from sewage, industrial waste, or decaying organic <br>
+            material, which depletes oxygen and makes water unsuitable for <br>
+            both human use and aquatic life. Excessive B.O.D. can lead to <br>
+            oxygen depletion, resulting in fish kills and the disruption of <br>
+            aquatic ecosystems.
+         </p>
+      </div>
+
+      <div class="flex flex-col items-end w-full">
+         <p class="text-gray-700 text-xs mb-2 text-center">
+            <br>The following is the Co-relation Heatmap of all parameters involved
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br>in Water Safety Prediction.
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         </p>
+         <img alt="heat map" class="w-full max-w-lg h-auto rounded-2xl" src="{{ url_for('static', filename='images/correl.png') }}"/>
+      </div>
+   </div>
+
+   <br>
+
+   <div class="grid grid-cols-[1fr_auto] gap-8">
+      <div>
+         <p class="text-lg text-gray-800 mb-8">
+            <span class="text-2xl font-bold">Nitrate-Nitrogen (mg/l):</span> <br>
+            Excess nitrates and nitrites result from agricultural runoff, 
+            fertilizers, and sewage discharge. High concentrations can 
+            lead to eutrophication, which depletes oxygen and harms aquatic 
+            ecosystems. In drinking water, elevated nitrate levels pose 
+            serious health risks, such as methemoglobinemia ("blue baby 
+            syndrome") in infants, which reduces oxygen transport in the blood and can be fatal. 
+            Long-term exposure to high nitrate levels has also been linked to thyroid dysfunction and potential cancer risks.
+         </p>
+      </div>
+   </div>  
+  
+   <br><br>
+
+   <div class="grid grid-cols-[1fr_auto] gap-4">
+      <div class="flex justify-between w-full gap-x-8">
+         <div class="w-1/2 flex justify-end">
+            <img alt="B.O.D." class="w-full h-auto rounded-2xl" src="{{ url_for('static', filename='images/bod.png') }}"/>
+         </div>
+         <div class="w-1/2 flex justify-start">
+            <img alt="Nitrate-Nitrogen" class="w-full h-auto rounded-2xl" src="{{ url_for('static', filename='images/nitrate.png') }}"/>
+         </div>
+      </div>   
+   </div>
+
+   <br>
+
+   <p class="text-gray-700 text-xs mb-2" align="center">The graphs above represnt the data driven insights for
+      "Biochemical Oxygen Demand" and <br>"Nitrate-Nitrogen" that were extracted from the Tarang AI Water Safety Prediction model.
+   </p> 
+
+</main> 
+
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+ </body>
+ 
+</html>

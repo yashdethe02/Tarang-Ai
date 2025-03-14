@@ -1,0 +1,182 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <title>
+   Tips-TarangAI
+  </title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+
+</head>
+
+<body class="tips-page">
+
+<header class="relative p-8">
+
+   <!-- logo -->
+   <div class="absolute left-6 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+      <img alt="Tarang AI Logo" class="w-36 h-36" src="{{ url_for('static', filename='images/TarangAILogo.png') }}"/>
+   </div>
+
+   <!-- navigation -->
+   <nav class="absolute left-1/2 transform -translate-x-1/2 top-6 flex space-x-2">
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('home_page') }}">Home</a> 
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('insights_page') }}">Insights</a>
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('hello_world') }}">AI Prediction</a>
+      <a class="nav-link text-lg text-black font-semibold" href="{{ url_for('tips_page') }}">Tips</a>
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('flag_page') }}">Flag Concerns</a>
+  </nav>  
+
+   <!-- search bar -->
+<div class="absolute top-7 right-6 flex items-center mb-8">
+   <div class="relative w-71">
+       <input type="text" class="w-full py-1 px-3 rounded-full border border-gray-300 bg-[rgba(255,255,255,0.5)]" id="searchBar" placeholder="Search..." oninput="showResults()" autocomplete="off">
+       <div id="searchResults" class="dropdown"></div>
+       <i class="fas fa-search absolute top-2 right-3 text-gray-400"></i>
+   </div>
+</div>
+
+</header>
+
+<main class="px-6 md:px-20 lg:px-40 py-10">
+
+   <br><br><br>
+   
+   <!-- text -->
+   <h1 class="text-5xl md:text-6xl lg:text-7xl text-black-600 font-bold mb-6">
+      Water Safety Tips
+   </h1>
+
+   <p class="text-lg text-black-600 mb-8">
+      Water is essential for life, but using it sustainably and safely is just as important. Whether <br>
+      at home, outdoors, or near open water, being mindful can prevent accidents and health risks. <br>
+      Here are a few ways to acheive that. And if you have a solution in mind, click on <span class="text-lg font-bold">Contribute</span>.
+   </p>
+
+   <div class="flex space-x-4 mb-4">  
+      <a href="https://ejalshakti.gov.in/MISC/Innovation_Technology.aspx" target=”_blank”>
+         <button class="px-6 py-3 bg-black text-white rounded-full flex items-center space-x-2 get-started-btn">
+            <span>Contribute Your Idea</span>
+            <i class="fas fa-arrow-right">
+            </i>
+         </button>
+      </a>
+   </div> 
+
+   <br><br><br><br>
+
+   <p class="text-lg text-gray-800 mb-8">
+      <span class="text-2xl font-bold">1. Identifying Safe Drinking Water</span> <br>
+      Safe drinking water should be clear, odorless, and free from visible contaminants. Bottled or sealed water is the best option in emergencies. Natural sources like rivers or lakes should never be consumed without proper treatment. Checking local water advisories is essential, especially after natural disasters or pollution spills.
+   </p>
+
+   <br>
+
+   <p class="text-lg text-gray-800 mb-8">
+      <span class="text-2xl font-bold">2. Preventing Waterborne Diseases</span> <br>
+      Contaminated water can carry bacteria, viruses, and parasites that cause diseases. Washing hands before handling drinking or cooking water prevents contamination. Water should always be stored in clean, covered containers to avoid exposure to dust and microbes. Direct consumption from unverified sources should be avoided.
+   </p>
+
+   <div class="flex flex-col items-center w-full text-center">
+      <p class="text-gray-700 text-xs mb-2">
+         <br>Number of reported drinking water associated outbreaks.
+         <br>For source <a href="https://www.cdc.gov/mmwr/volumes/73/ss/ss7301a1.htm" class="font-bold hover:underline" target="_blank">Click Here</a>.
+      </p>
+      <img alt="waterborne" class="w-full max-w-2xl h-auto rounded-2xl" src="{{ url_for('static', filename='images/waterbor.jpg') }}"/>
+   </div>
+
+   <br><br><br>
+
+   <p class="text-lg text-gray-800 mb-8">
+      <span class="text-2xl font-bold">3. Boil Water Before Drinking</span> <br>
+      Bringing water to a rolling boil for at least one minute effectively kills bacteria, viruses, and parasites. In higher altitudes, water should be boiled for at least three minutes due to lower boiling points. Boiling is especially useful in emergency situations, natural disasters, or when traveling to areas with uncertain water quality. However, while boiling eliminates pathogens, it does not remove chemical pollutants, heavy metals, or sediments from water. To improve purity, it is recommended to let the boiled water cool and filter it through a clean cloth or activated charcoal to remove any remaining impurities. Storing boiled water in covered, clean containers is also essential to prevent recontamination.
+   </p>
+   
+   <br>
+   
+   <p class="text-lg text-gray-800 mb-8">
+      <span class="text-2xl font-bold">4. Dissolved Oxygen and Water Safety</span> <br>
+      Dissolved oxygen is essential for maintaining aquatic ecosystems and ensuring water remains fresh and drinkable. Low oxygen levels indicate pollution, often caused by excessive organic waste, sewage discharge, and industrial runoff. When dissolved oxygen levels drop, aquatic organisms struggle to survive, leading to ecosystem imbalances and poor water quality. Stagnant water bodies with high organic matter tend to have the lowest oxygen levels, making them prone to contamination and unpleasant odors. Preventing untreated waste from entering water sources, promoting aeration techniques in lakes and reservoirs, and maintaining plant life around water bodies can help sustain healthy oxygen levels and improve water quality. 
+   </p>
+   
+   <br>
+   
+   <p class="text-lg text-gray-800 mb-8">
+      <span class="text-2xl font-bold">5. Maintaining Proper pH Levels</span> <br>
+      The pH level of water determines its acidity or alkalinity, and extreme variations can make it unsafe for both human consumption and aquatic life. Water with a pH below 6.5 is too acidic and can corrode pipes, releasing harmful metals like lead into drinking water. On the other hand, water with a pH above 8.5 can cause scaling in plumbing systems and reduce the effectiveness of water treatment methods. Acid rain, industrial pollution, and agricultural runoff can all contribute to dangerous pH fluctuations. Regularly testing water sources, using natural pH stabilizers like limestone, and ensuring proper wastewater management can help keep pH levels within the safe range of 6.5 to 8.5. 
+   </p>
+
+   <div class="flex flex-col items-center w-full text-center">
+      <p class="text-gray-700 text-xs mb-2">
+         <br>pH levels of water stored in different waters containers during week 1 and 8 of the study
+         <br>For source <a href="https://www.researchgate.net/figure/pH-levels-of-water-stored-in-different-waters-containers-during-week-1-and-8-of-the-study_fig1_330034424" class="font-bold hover:underline" target="_blank">Click Here</a>.
+      </p>
+      <img alt="ph" class="w-full max-w-2xl h-auto rounded-2xl" src="{{ url_for('static', filename='images/phgra.png') }}"/>
+   </div>
+
+   <br><br><br>
+   
+   <p class="text-lg text-gray-800 mb-8">
+      <span class="text-2xl font-bold">6. Controlling Conductivity in Water</span> <br>
+      Conductivity measures the water's ability to carry an electrical charge, which depends on the concentration of dissolved salts, minerals, and pollutants. High conductivity levels indicate an excessive presence of contaminants, often due to industrial waste, agricultural runoff, or improper wastewater disposal. Water with extremely high conductivity is unsuitable for drinking, as it may contain harmful substances like heavy metals and nitrates. It can also affect plant growth and soil quality when used for irrigation. Preventing chemical dumping, treating industrial effluents before release, and using advanced filtration methods like reverse osmosis or activated carbon filtration can help regulate conductivity and ensure water remains safe for consumption and environmental use. 
+   </p>
+   
+   <div class="flex flex-col items-center w-full text-center">
+      <p class="text-gray-700 text-xs mb-2">
+         <br>High v/s Low Conductivity in Water
+         <br>For source <a href="https://www.renkeer.com/conductivity-in-water/" class="font-bold hover:underline" target="_blank">Click Here</a>.
+      </p>
+      <img alt="conduct" class="w-full max-w-2xl h-auto rounded-2xl" src="{{ url_for('static', filename='images/condimg.jpg') }}"/>
+   </div>
+
+   <br><br><br>
+   
+   <p class="text-lg text-gray-800 mb-8">
+      <span class="text-2xl font-bold">7. Reducing Biochemical Oxygen Demand (B.O.D.)</span> <br>
+      Biochemical Oxygen Demand (B.O.D.) is a key indicator of organic pollution in water bodies. High B.O.D. levels suggest that large amounts of biodegradable material are present, leading to oxygen depletion as bacteria break them down. This process harms aquatic life, promotes algal blooms, and makes water murky and unpleasant. Sources of high B.O.D. include untreated sewage, industrial waste, and agricultural runoff carrying organic matter like manure and decaying plant material. Ensuring proper wastewater treatment, reducing household and industrial waste discharge, and maintaining natural wetlands to filter organic matter can significantly lower B.O.D. levels and improve overall water quality. 
+   </p>
+   
+   <br>
+   
+   <p class="text-lg text-gray-800 mb-8">
+      <span class="text-2xl font-bold">8. Preventing Fecal Coliform Contamination</span> <br>
+      Fecal coliform bacteria are a strong indicator of water contamination from human or animal waste. Their presence suggests that harmful pathogens like E. coli and Salmonella may also be in the water, increasing the risk of waterborne diseases. Poor sanitation, leaking septic systems, untreated sewage discharge, and agricultural runoff containing animal waste are primary sources of fecal contamination. Drinking contaminated water can lead to serious illnesses, including gastrointestinal infections, hepatitis, and typhoid. To ensure water safety, it is crucial to boil or treat water with chlorine, maintain proper sanitation systems, prevent direct sewage discharge into water bodies, and regularly monitor water sources for bacterial contamination. 
+   </p>
+   
+
+   <br>
+
+   <p class="text-lg text-gray-800 mb-8">
+      <span class="text-2xl font-bold">9. Recycling and Reusing Water</span> <br>
+      Greywater from washing machines, sinks, and showers can be treated and reused for gardening or flushing toilets. Using eco-friendly detergents ensures that reused water does not harm plants or soil.
+   </p>
+
+   <div class="flex flex-col items-center w-full text-center">
+      <p class="text-gray-700 text-xs mb-2">
+         <br>Volume of wastewater produced and recycled
+         <br>For source <a href="http://audit.vic.gov.au/report/supplying-and-using-recycled-water?section=" class="font-bold hover:underline" target="_blank">Click Here</a>.
+      </p>
+      <img alt="recycle" class="w-full max-w-2xl h-auto rounded-2xl" src="{{ url_for('static', filename='images/recycle.png') }}"/>
+   </div>
+
+   <br><br><br>
+
+   <p class="text-lg text-gray-800 mb-8">
+      <span class="text-2xl font-bold">10. Protecting Natural Water Sources</span> <br>
+      Pollution from plastic waste, chemicals, and industrial discharge threatens freshwater sources. Proper waste disposal, reducing single-use plastics, and supporting clean-up initiatives help preserve lakes, rivers, and groundwater. Sustainable agricultural practices, such as reducing pesticide use and optimizing irrigation, protect water resources from contamination and depletion.
+   </p>
+
+</main>   
+
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+</body>
+ 
+</html>

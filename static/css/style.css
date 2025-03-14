@@ -1,0 +1,227 @@
+/* home bg */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: radial-gradient(circle at 30% 10%, #0081a7, transparent 40%),
+                radial-gradient(circle at 80% 50%, #3ca8bd, transparent 50%),
+                radial-gradient(circle at 10% 80%, #ffb3a1, transparent 55%),
+                radial-gradient(circle at 60% 30%, #ff7f7f, transparent 45%),
+                radial-gradient(circle at 20% 70%, #00b4d8, transparent 60%),
+                radial-gradient(circle at 90% 20%, #48cae4, transparent 50%),
+                radial-gradient(circle at 50% 75%, #ffb3a1, transparent 45%),
+                radial-gradient(circle at 40% 40%, #ff7f7f, transparent 55%);
+}
+
+.insights-page {
+    font-family: 'Roboto', sans-serif;
+    background: radial-gradient(circle at 20% 30%, #0081a7, transparent 40%), 
+                radial-gradient(circle at 80% 20%, #3ca8bd, transparent 50%), 
+                radial-gradient(circle at 50% 80%, #ffb3a1, transparent 60%), 
+                radial-gradient(circle at 70% 60%, #ff7f7f, transparent 50%),
+                radial-gradient(circle at 10% 80%, #00b4d8, transparent 40%),
+                radial-gradient(circle at 90% 70%, #48cae4, transparent 50%),
+                radial-gradient(circle at 30% 50%, #ffb3a1, transparent 50%),
+                radial-gradient(circle at 60% 10%, #ff7f7f, transparent 50%);
+}
+
+.aipred-page {
+    font-family: 'Roboto', sans-serif;
+    background: radial-gradient(circle at 50% 10%, #0081a7, transparent 50%), 
+                radial-gradient(circle at 20% 50%, #3ca8bd, transparent 60%), 
+                radial-gradient(circle at 80% 70%, #ffb3a1, transparent 70%), 
+                radial-gradient(circle at 10% 90%, #ff7f7f, transparent 50%),
+                radial-gradient(circle at 70% 30%, #00b4d8, transparent 60%),
+                radial-gradient(circle at 90% 50%, #48cae4, transparent 70%),
+                radial-gradient(circle at 30% 80%, #ffb3a1, transparent 60%),
+                radial-gradient(circle at 60% 20%, #ff7f7f, transparent 50%);
+}
+
+.tips-page {
+    font-family: 'Roboto', sans-serif;
+    background: radial-gradient(circle at 20% 30%, #0081a7, transparent 50%), 
+                radial-gradient(circle at 80% 20%, #3ca8bd, transparent 60%), 
+                radial-gradient(circle at 50% 80%, #ffb3a1, transparent 70%), 
+                radial-gradient(circle at 70% 60%, #ff7f7f, transparent 50%),
+                radial-gradient(circle at 10% 80%, #00b4d8, transparent 40%),
+                radial-gradient(circle at 90% 70%, #48cae4, transparent 50%);
+}
+
+.flag-page {
+    font-family: 'Roboto', sans-serif;
+    background: radial-gradient(circle at 10% 90%, #0081a7, transparent 50%), 
+                radial-gradient(circle at 90% 10%, #3ca8bd, transparent 60%), 
+                radial-gradient(circle at 30% 70%, #ffb3a1, transparent 70%), 
+                radial-gradient(circle at 70% 30%, #ff7f7f, transparent 50%),
+                radial-gradient(circle at 50% 50%, #00b4d8, transparent 60%),
+                radial-gradient(circle at 80% 60%, #48cae4, transparent 70%),
+                radial-gradient(circle at 20% 40%, #ffb3a1, transparent 60%),
+                radial-gradient(circle at 60% 80%, #ff7f7f, transparent 50%);
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------- */
+
+
+/* hover func of nav */
+.nav-link {
+    position: relative;
+    padding: 8px 16px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #012a36;
+    border-radius: 999px;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #012a36; 
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-link.active {
+    color: #012a36;
+}
+
+.nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------- */
+
+
+/* search bar dropdown */
+#searchResults {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: none;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 10;
+}
+.dropdown-item {
+    padding: 8px;
+    cursor: pointer;
+}
+.dropdown-item:hover {
+    background-color: #ddd;
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------- */
+
+
+/* get started button */
+.get-started-btn:hover {
+    transform: translateY(-3px); 
+   transition: transform 0.2s ease-in-out; 
+}
+
+/* insight button */
+.view-insights-btn {
+    transition: background-color 0.3s, color 0.3s; 
+}
+ 
+ .view-insights-btn:hover {
+    background-color: #000000; 
+    color: white; 
+    border: none; 
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------- */
+
+
+/* github button */
+.github-btn {
+    transition: background-color 0.3s, color 0.3s; 
+}
+ 
+ .github-btn:hover {
+    transform: translateY(-3px); 
+   transition: transform 0.2s ease-in-out; 
+   color: black;
+}
+ 
+/* linkedin button */
+.linkedin-btn {
+    transition: background-color 0.3s, color 0.3s; 
+}
+ 
+ .linkedin-btn:hover {
+    transform: translateY(-3px); 
+   transition: transform 0.2s ease-in-out; 
+   color: black;
+}
+
+/* email button */
+.email-btn {
+    transition: background-color 0.3s, color 0.3s; 
+}
+ 
+ .email-btn:hover {
+    transform: translateY(-3px); 
+   transition: transform 0.2s ease-in-out; 
+   color: black;
+}
+
+ 
+/* --------------------------------------------------------------------------------------------------------------- */
+
+/* parameters */
+select {
+    border: 1px solid #4B5563; 
+    border-radius: 9999px; 
+    padding: 0.75rem 1rem;
+    background-color: transparent;
+    color: #4B5563;
+    height: auto;
+    appearance: none;
+    position: relative; 
+    z-index: 10; 
+}
+
+select:focus {
+    color: black; 
+}
+
+option {
+    color: black;
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------- */
+
+
+/* auto fill button */
+.auto-fill-btn:hover {
+    transform: translateY(-3px); 
+   transition: transform 0.2s ease-in-out; 
+}
+
+/* predict button */
+.predict-btn:hover {
+    transform: translateY(-3px); 
+   transition: transform 0.2s ease-in-out; 
+}
+/* --------------------------------------------------------------------------------------------------------------- */

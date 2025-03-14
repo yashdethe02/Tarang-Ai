@@ -1,0 +1,111 @@
+<html lang="en">
+
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <title>
+   Home-TarangAI
+  </title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+
+ </head>
+
+ <body class="text-gray-800">
+
+<header class="relative p-8">
+
+   <!-- logo -->
+   <div class="absolute left-6 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+      <img alt="Tarang AI Logo" class="w-36 h-36" src="{{ url_for('static', filename='images/TarangAILogo.png') }}"/>
+   </div>
+
+   <!-- navigation -->
+   <nav class="absolute left-1/2 transform -translate-x-1/2 top-6 flex space-x-2">
+      <a class="nav-link text-lg text-black font-semibold" href="{{ url_for('home_page') }}">Home</a> 
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('insights_page') }}">Insights</a>
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('hello_world') }}">AI Prediction</a>
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('tips_page') }}">Tips</a>
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('flag_page') }}">Flag Concerns</a>
+  </nav>  
+
+   <!-- search bar -->
+<div class="absolute top-7 right-6 flex items-center mb-8">
+   <div class="relative w-71">
+       <input type="text" class="w-full py-1 px-3 rounded-full border border-gray-300 bg-[rgba(255,255,255,0.5)]" id="searchBar" placeholder="Search..." oninput="showResults()" autocomplete="off">
+       <div id="searchResults" class="dropdown"></div>
+       <i class="fas fa-search absolute top-2 right-3 text-gray-400"></i>
+   </div>
+</div>
+
+</header>
+
+  <main class="px-6 md:px-20 lg:px-40 py-10">
+
+   <br><br><br>
+   
+   <!-- text -->
+   <div class="text-lg text-black-600 mb-2">
+    Welcome to Tarang AI,
+   </div>
+
+   <h1 class="text-5xl md:text-6xl lg:text-7xl text-black-600 font-bold mb-6">
+    Your very own AI-Powered <br>Water Safety Predictor!
+   </h1>
+
+   <p class="text-lg text-black-600 mb-8">
+      Tarang AI is your innovative companion for water safety and resource management, proudly rooted in India.<br>Leveraging advanced 
+      artificial intelligence, it predicts water safety across various parameters. With this tool, <br>you can stay ahead, make informed decisions, 
+      and protect one of our most vital resources—water. <br>After all, 'Jal hi Jeevan hai.'
+   </p>
+
+   <br><br><br>
+
+   <!-- buttons -->
+   <div class="flex space-x-4 mb-4">
+   <a href="{{ url_for('hello_world') }}">  
+    <button class="px-6 py-3 bg-black text-white rounded-full flex items-center space-x-2 get-started-btn">
+     <span>
+      Get started
+     </span>
+     <i class="fas fa-arrow-right">
+     </i>
+    </button>
+    </a>
+
+    <a href="{{ url_for('insights_page') }}">
+    <button class="px-6 py-3 border border-gray-600 text-gray-600 rounded-full view-insights-btn">
+     View Insights
+    </button>
+   </a>
+   </div>
+
+   <div class="text-lg text-black-600 mb-2">
+      &nbsp;&nbsp; Backed by data from <span class="text-lg font-bold">1,700+</span> places.
+     </div>
+
+  </main>
+
+  <!-- socials -->
+  <div class="social-icons flex justify-center space-x-6 py-6">
+   <a href="https://github.com/yashdethe02/Tarang-Ai.git" target="_blank">
+       <i class="fab fa-github text-gray-500 text-2xl github-btn"></i>
+   </a>
+   <a href="www.linkedin.com/in/yash-dethe-486418297" target="_blank">
+       <i class="fab fa-linkedin text-gray-500 text-2xl linkedin-btn"></i>
+   </a>
+   <a href="mailto:nhitmstudents@nhitm.ac.in">
+       <i class="fas fa-envelope text-gray-500 text-2xl email-btn"></i>
+   </a>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+ </body>
+ 
+</html>

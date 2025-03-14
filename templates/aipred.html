@@ -1,0 +1,148 @@
+<html lang="en">
+
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <title>
+   AI Prediction-TarangAI
+  </title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+
+ </head>
+
+<body class="aipred-page">
+
+<header class="relative p-8">
+
+   <!-- logo -->
+   <div class="absolute left-6 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+      <img alt="Tarang AI Logo" class="w-36 h-36" src="{{ url_for('static', filename='images/TarangAILogo.png') }}"/>
+   </div>
+
+   <!-- navigation -->
+   <nav class="absolute left-1/2 transform -translate-x-1/2 top-6 flex space-x-2">
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('home_page') }}">Home</a> 
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('insights_page') }}">Insights</a>
+      <a class="nav-link text-lg text-black font-semibold" href="{{ url_for('hello_world') }}">AI Prediction</a>
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('tips_page') }}">Tips</a>
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('flag_page') }}">Flag Concerns</a>
+  </nav>  
+
+   <!-- search bar -->
+<div class="absolute top-7 right-6 flex items-center mb-8">
+   <div class="relative w-71">
+       <input type="text" class="w-full py-1 px-3 rounded-full border border-gray-300 bg-[rgba(255,255,255,0.5)]" id="searchBar" placeholder="Search..." oninput="showResults()" autocomplete="off">
+       <div id="searchResults" class="dropdown"></div>
+       <i class="fas fa-search absolute top-2 right-3 text-gray-400"></i>
+   </div>
+</div>
+
+</header>
+
+<main class="px-6 md:px-20 lg:px-40 py-10">
+
+   <br><br><br>
+   
+   <!-- text -->
+   <h1 class="text-2xl md:text-6xl lg:text-7xl text-gray-800 font-bold mb-6">
+      Let's test the waters!
+   </h1> 
+
+   <p class="text-lg text-gray-800 mb-8">
+      The pun is indeed intended, let Tarang AI analyze water safety based on <span class="text-lg font-bold">Key Parameters</span>. <br>Fill
+       in the details of your water sample and select a desired <span class="text-lg font-bold">Location</span>. Then, 
+      click on <span class="text-lg font-bold">Predict</span> to <br>predict the probability of water being safe or unsafe.
+   </p>
+
+   <br>
+
+   <!-- parameters enter -->
+   <form action='/predict' method="post" class="col s12">
+      <div class="row">
+         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <select name="STATE" id="state" class="border border-gray-800 rounded-full py-3 px-4 bg-transparent text-gray-600 w-full">
+               <option name="" id="" value="" disabled selected>Select Location</option>
+               <option name="0" id="0" value="0">ANDHRA PRADESH</option>
+               <option name="1" id="1" value="1">ARUNACHAL PRADESH</option>
+               <option name="2" id="2" value="2">ASSAM</option>
+               <option name="3" id="3" value="3">BIHAR</option>
+               <option name="4" id="4" value="4">CHANDIGARH</option>
+               <option name="5" id="5" value="5">CHHATTISGARH</option>
+               <option name="6" id="6" value="6">DADRA NAGAR HAVELI</option>
+               <option name="7" id="7" value="7">DAMAN & DIU</option>
+               <option name="8" id="8" value="8">GOA</option>
+               <option name="9" id="9" value="9">GUJARAT</option>
+               <option name="10" id="10" value="10">HARYANA</option>
+               <option name="11" id="11" value="11">HIMACHAL PRADESH</option>
+               <option name="12" id="12" value="12">JHARKHAND</option>
+               <option name="13" id="13" value="13">KARNATAKA</option>
+               <option name="14" id="14" value="14">KERALA</option>
+               <option name="15" id="15" value="15">MADHYA PRADESH</option>
+               <option name="16" id="16" value="16">MAHARASHTRA</option>
+               <option name="17" id="17" value="17">MANIPUR</option>
+               <option name="18" id="18" value="18">MEGHALAYA</option>
+               <option name="19" id="19" value="19">MIZORAM</option>
+               <option name="20" id="20" value="20">NAGALAND</option>
+               <option name="21" id="21" value="21">NEW DELHI</option>
+               <option name="22" id="22" value="22">ODISHA</option>
+               <option name="23" id="23" value="23">PONDICHERRY</option>
+               <option name="24" id="24" value="24">PUNJAB</option>
+               <option name="25" id="25" value="25">RAJASTHAN</option>
+               <option name="26" id="26" value="26">SIKKIM</option>
+               <option name="27" id="27" value="27">TAMILNADU</option>
+               <option name="28" id="28" value="28">TRIPURA</option>
+               <option name="29" id="29" value="29">UTTAR PRADESH</option>
+               <option name="30" id="30" value="30">UTTARAKHAND</option>
+           </select>
+              <input name="temp" id="temp" class="border border-gray-800 rounded-full py-3 px-4 bg-transparent text-gray-800 placeholder-gray-600 w-full" placeholder="Enter Temprature (°C)" type="number" step="any"/>
+              <input name="do" id="do" class="border border-gray-800 rounded-full py-3 px-4 bg-transparent text-gray-800 placeholder-gray-600 w-full" placeholder="Enter Dissolved O₂ (mg/L)" type="number" step="any"/>
+              <input name="ph" id="ph" class="border border-gray-800 rounded-full py-3 px-4 bg-transparent text-gray-800 placeholder-gray-600 w-full" placeholder="Enter pH (0-14)" type="number" step="any"/>
+              <input name="conductivity" id="conductivity" class="border border-gray-800 rounded-full py-3 px-4 bg-transparent text-gray-800 placeholder-gray-600 w-full" placeholder="Enter Conductivity (μmhos/cm)" type="number" step="any"/>
+              <input name="bod" id="bod" class="border border-gray-800 rounded-full py-3 px-4 bg-transparent text-gray-800 placeholder-gray-600 w-full" placeholder="Enter Biochemical O₂ Need (mg/L)" type="number" step="any"/>
+              <input name="nitrate" id="nitrate" class="border border-gray-800 rounded-full py-3 px-4 bg-transparent text-gray-800 placeholder-gray-600 w-full" placeholder="Enter NO₃⁻ and NO₂⁻ (mg/L)" type="number" step="any"/>
+              <input name="fecalColiform" id="fecalColiform" class="border border-gray-800 rounded-full py-3 px-4 bg-transparent text-gray-800 placeholder-gray-600 w-full" placeholder="Enter Fecal Coliform (MPN/100mL)" type="number" step="any"/>
+          </div> 
+      </div>
+
+      <br><br>
+
+      <!-- buttons -->
+      <div class="flex space-x-4 mb-4">
+            <button type="submit" id="predictBtn" class="px-6 py-3 bg-gray-900 text-white rounded-full flex items-center space-x-2 predict-btn">
+               <span>
+               Predict Water Safety
+               </span>
+            </button>
+      </div>
+   </form> 
+
+   <br><br><br>
+
+   <!-- Result Display Section -->
+   <div id="resultSection" class="text-center py-12 mt-8 mb-16 {{ 'hidden' if not show_result }}">
+      <div class="result-container max-w-4xl mx-auto">
+         {% if pred %}
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">{{ pred }}</h2>
+         {% endif %}
+         
+         {% if safe_prob and unsafe_prob %}
+            <p class="text-2xl md:text-3xl mb-4">Probability of water being SAFE:  {{ safe_prob }}%</p>
+            <p class="text-2xl md:text-3xl mb-8">Probability of water being UNSAFE:  {{ unsafe_prob }}%</p>
+         {% endif %}
+         
+         <br>
+
+         <p class="text-lg text-gray-600 mt-8">Explore <a href="{{ url_for('insights_page') }}" class="font-bold hover:underline">Insights</a> to see how these parameters impact water safety! For essential tips, dive into the <a href="{{ url_for('tips_page') }}" class="font-bold hover:underline">Tips</a> section.</p>
+      </div>
+   </div>
+   
+</main>
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</body>
+</html>
