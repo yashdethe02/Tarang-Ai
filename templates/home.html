@@ -29,7 +29,7 @@
    <nav class="absolute left-1/2 transform -translate-x-1/2 top-6 flex space-x-2">
       <a class="nav-link text-lg text-black font-semibold" href="{{ url_for('home_page') }}">Home</a> 
       <a class="nav-link text-lg text-gray-600" href="{{ url_for('insights_page') }}">Insights</a>
-      <a class="nav-link text-lg text-gray-600" href="{{ url_for('hello_world') }}">AI Prediction</a>
+      <a class="nav-link text-lg text-gray-600" href="{{ url_for('ai_prediction_page') }}">AI Prediction</a>
       <a class="nav-link text-lg text-gray-600" href="{{ url_for('tips_page') }}">Tips</a>
       <a class="nav-link text-lg text-gray-600" href="{{ url_for('flag_page') }}">Flag Concerns</a>
   </nav>  
@@ -68,7 +68,7 @@
 
    <!-- buttons -->
    <div class="flex space-x-4 mb-4">
-   <a href="{{ url_for('hello_world') }}">  
+   <a href="{{ url_for('ai_prediction_page') }}">  
     <button class="px-6 py-3 bg-black text-white rounded-full flex items-center space-x-2 get-started-btn">
      <span>
       Get started
@@ -86,10 +86,20 @@
    </div>
 
    <div class="text-lg text-black-600 mb-2">
-      &nbsp;&nbsp; Backed by data from <span class="text-lg font-bold">1,700+</span> places.
+      &nbsp;&nbsp; Backed by data from <span class="text-lg font-bold">1,700+</</span> places.
      </div>
 
   </main>
+
+  <!-- Add Chatbot Component -->
+  <div id="chatbot-container" class="fixed bottom-4 right-4">
+    <div id="chatbot" class="bg-white p-4 rounded-lg shadow-lg">
+        <h2 class="text-lg font-bold mb-2">Water Safety Chatbot</h2>
+        <div id="chatBox" class="mb-2"></div>
+        <input type="text" id="userMessage" class="border rounded p-2 w-full mb-2" placeholder="Ask about water safety...">
+        <button onclick="sendMessage()" class="bg-blue-500 text-white px-4 py-2 rounded">Send</button>
+    </div>
+  </div>
 
   <!-- socials -->
   <div class="social-icons flex justify-center space-x-6 py-6">
@@ -105,6 +115,7 @@
 </div>
 
 <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+<!-- <script src="{{ url_for('static', filename='js/chat.js') }}" defer></script> -->
 
  </body>
  

@@ -1,17 +1,28 @@
-from flask import Flask, request, render_template
-import pickle
-import numpy as np
-import pandas as pd
+from flask import Flask, render_template, redirect, url_for, flash, g, session, request, jsonify
+import openai
+import random
+from flask_cors import CORS  # Add this import
+import os  # Add this import
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS
 
-model = pickle.load(open('model.pkl', 'rb'))
+# Set your OpenAI API key
+openai.api_key = os.getenv("OPENAI_API_KEY")  # Load API key from environment variable
 
-feature_names = ['STATE', 'Temp', 'D.O. (mg/l)', 'PH', 'CONDUCTIVITY (µmhos/cm)', 'B.O.D. (mg/l)', 'NITRATENAN N+ NITRITENANN (mg/l)', 'FECAL COLIFORM (MPN/100ml)']
+@app.before_request
+def before_request():
+    g.current_user = None
+    if 'user_id' in session:
+        pass
+
+@app.context_processor
+def inject_user():
+    return dict(current_user=g.current_user)
 
 @app.route('/')
-def hello_world():
-    return render_template("aipred.html")
+def index():
+    return redirect(url_for('home_page'))
 
 @app.route('/home', endpoint='home_page')
 def home():
@@ -22,58 +33,52 @@ def insights():
     return render_template('insights.html')
 
 @app.route('/flag', endpoint='flag_page')
-def insights():
+def flag():
     return render_template('flag.html')
 
 @app.route('/tips', endpoint='tips_page')
-def insights():
+def tips():
     return render_template('tips.html')
 
-@app.route('/predict', methods=['POST', 'GET'])
+@app.route('/ai_prediction', endpoint='ai_prediction_page')
+def ai_prediction():
+    return render_template('aipred.html')
+
+@app.route('/chatbot', endpoint='chatbot_page')
+def chatbot():
+    return render_template('chatbot.html')
+
+@app.route('/predict', methods=['POST'])
 def predict():
-    try:
-        form_values = {
-            'state': 'STATE',
-            'temp': 'Temp',
-            'do': 'D.O. (mg/l)',
-            'ph': 'PH',
-            'conductivity': 'CONDUCTIVITY (µmhos/cm)',
-            'bod': 'B.O.D. (mg/l)',
-            'nitrate': 'NITRATENAN N+ NITRITENANN (mg/l)',
-            'fecalColiform': 'FECAL COLIFORM (MPN/100ml)'
-        }
-        
-        input_values = []
-        for form_field in form_values.keys():
-            value = float(request.form.get(form_field, 0))
-            input_values.append(value)
-        
-        final_input = pd.DataFrame([input_values], columns=feature_names)
-        
-        prediction = model.predict_proba(final_input)
-        
-        prob_safe = prediction[0][1] * 100
-        prob_unsafe = prediction[0][0] * 100
+    # Extract form data
+    state = request.form.get('STATE')
+    temp = request.form.get('temp')
+    do = request.form.get('do')
+    ph = request.form.get('ph')
+    conductivity = request.form.get('conductivity')
+    bod = request.form.get('bod')
+    nitrate = request.form.get('nitrate')
+    fecal_coliform = request.form.get('fecalColiform')
 
-        output1 = "SAFE: {:.2f}%".format(prob_safe)
-        output2 = "UNSAFE: {:.2f}%".format(prob_unsafe)
+    # Perform prediction logic here
+    # For demonstration, we'll use dummy values
+    pred = "Safe"
+    safe_prob = 85.0
+    unsafe_prob = 15.0
 
-        safe_prob_formatted = "{:.2f}".format(prob_safe)
-        unsafe_prob_formatted = "{:.2f}".format(prob_unsafe)
+    return render_template('aipred.html', show_result=True, pred=pred, safe_prob=safe_prob, unsafe_prob=unsafe_prob)
 
-        if prob_safe > prob_unsafe:
-            result = 'Water is SAFE.'
-        else:
-            result = 'Water is UNSAFE.'
+@app.route('/chat', methods=['POST'])
+def chat():
+    user_input = request.json['message']
+    response = openai.ChatCompletion.create(
+        model="gpt-4",  # Use "gpt-3.5-turbo" if needed
+        messages=[
+            {"role": "system", "content": "You are a water safety expert."},
+            {"role": "user", "content": user_input}
+        ]
+    )
+    return jsonify({"response": response['choices'][0]['message']['content']})
 
-        return render_template('aipred.html', 
-                              pred=result,
-                              safe_prob=safe_prob_formatted,
-                              unsafe_prob=unsafe_prob_formatted,
-                              show_result=True)
-        
-    except Exception as e:
-        return render_template('aipred.html', pred=f"Error: {str(e)}")
-
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True, port=5002)

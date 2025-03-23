@@ -80,8 +80,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 300);
     }
+    
+    // Initialize Chatbot
+    const chatbotContainer = document.getElementById('chatbot');
+    if (chatbotContainer) {
+        ReactDOM.render(<Chatbot />, chatbotContainer);
+    }
 });
-
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
