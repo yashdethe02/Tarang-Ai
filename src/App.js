@@ -1,11 +1,11 @@
 import React from 'react';
-import Chatbot from './components/Chatbot';
+// ...existing code...
 
 function App() {
     return (
         <div className="App">
             {/* ...existing code... */}
-            <Chatbot />
+            {/* <Chatbot /> */}
             {/* ...existing code... */}
         </div>
     );

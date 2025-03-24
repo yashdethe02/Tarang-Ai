@@ -91,15 +91,15 @@
 
   </main>
 
-  <!-- Add Chatbot Component -->
-  <div id="chatbot-container" class="fixed bottom-4 right-4">
+  <!-- Remove Chatbot Component -->
+  <!-- <div id="chatbot-container" class="fixed bottom-4 right-4">
     <div id="chatbot" class="bg-white p-4 rounded-lg shadow-lg">
         <h2 class="text-lg font-bold mb-2">Water Safety Chatbot</h2>
         <div id="chatBox" class="mb-2"></div>
         <input type="text" id="userMessage" class="border rounded p-2 w-full mb-2" placeholder="Ask about water safety...">
         <button onclick="sendMessage()" class="bg-blue-500 text-white px-4 py-2 rounded">Send</button>
     </div>
-  </div>
+  </div> -->
 
   <!-- socials -->
   <div class="social-icons flex justify-center space-x-6 py-6">
@@ -116,6 +116,20 @@
 
 <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 <!-- <script src="{{ url_for('static', filename='js/chat.js') }}" defer></script> -->
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/67e17ad301316619114e72d7/1in4cfj6v';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 
  </body>
  

@@ -1,14 +1,9 @@
-from flask import Flask, render_template, redirect, url_for, flash, g, session, request, jsonify
-import openai
-import random
+from flask import Flask, render_template, redirect, url_for, g, session, request
 from flask_cors import CORS  # Add this import
 import os  # Add this import
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS
-
-# Set your OpenAI API key
-openai.api_key = os.getenv("OPENAI_API_KEY")  # Load API key from environment variable
 
 @app.before_request
 def before_request():
@@ -44,10 +39,6 @@ def tips():
 def ai_prediction():
     return render_template('aipred.html')
 
-@app.route('/chatbot', endpoint='chatbot_page')
-def chatbot():
-    return render_template('chatbot.html')
-
 @app.route('/predict', methods=['POST'])
 def predict():
     # Extract form data
@@ -67,18 +58,6 @@ def predict():
     unsafe_prob = 15.0
 
     return render_template('aipred.html', show_result=True, pred=pred, safe_prob=safe_prob, unsafe_prob=unsafe_prob)
-
-@app.route('/chat', methods=['POST'])
-def chat():
-    user_input = request.json['message']
-    response = openai.ChatCompletion.create(
-        model="gpt-4",  # Use "gpt-3.5-turbo" if needed
-        messages=[
-            {"role": "system", "content": "You are a water safety expert."},
-            {"role": "user", "content": user_input}
-        ]
-    )
-    return jsonify({"response": response['choices'][0]['message']['content']})
 
 if __name__ == "__main__":
     app.run(debug=True, port=5002)
